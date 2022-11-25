@@ -11,8 +11,18 @@
           @click="toggleLeftDrawer"
         />
 
-        <q-toolbar-title @click="goHome">
+        <q-toolbar-title>
+          <q-btn
+          flat
+          bold
+          no-caps
+          dense
+          size="25px"
+          @click=$router-link to="/"
+          >
           TreeHouse
+        </q-btn>
+
         </q-toolbar-title>
 
       </q-toolbar>
@@ -27,7 +37,7 @@
         <q-item-label
           header
         >
-          Essential Links
+          메뉴
         </q-item-label>
 
         <EssentialLink
@@ -40,6 +50,10 @@
 
     <q-page-container>
       <router-view />
+
+      <q-footer elevated class="bg-white text-primary">
+        <a>트리하우스<br/>위치 : ~~~~~ <br/> 연락처 : ~~~~</a>
+      </q-footer>
     </q-page-container>
   </q-layout>
 </template>
@@ -47,43 +61,42 @@
 <script>
 import { defineComponent, ref } from 'vue'
 import EssentialLink from 'components/EssentialLink.vue'
-import routes from 'src/router/routes'
 
 const linksList = [
   {
     title: '홈',
     caption: 'Home',
-    icon: 'school',
+    icon: 'home',
     link: '/'
   },
   {
     title: '공지사항',
     caption: 'Notice',
-    icon: 'school',
+    icon: 'description',
     link: '/Notice'
   },
   {
     title: '이벤트',
     caption: 'Event',
-    icon: 'code',
+    icon: 'event',
     link: '/Event'
   },
   {
     title: '보드게임',
     caption: 'Board Games',
-    icon: 'chat',
+    icon: 'casino',
     link: '/BoardGame'
   },
   {
     title: '예약',
     caption: 'Reservation',
-    icon: 'record_voice_over',
+    icon: 'calendar_month',
     link: '/Reservation'
   },
   {
     title: '기록',
     caption: 'Record',
-    icon: 'rss_feed',
+    icon: 'view_list',
     link: '/Record'
   }
 ]
@@ -103,9 +116,6 @@ export default defineComponent({
       leftDrawerOpen,
       toggleLeftDrawer () {
         leftDrawerOpen.value = !leftDrawerOpen.value
-      },
-      goHome () {
-        routes.push('/')
       }
     }
   }
