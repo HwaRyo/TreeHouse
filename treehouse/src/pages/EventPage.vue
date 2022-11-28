@@ -1,12 +1,34 @@
 <template>
-  <q-page class="flex flex-center">
-    <a>이벤트</a>
-    <img
-      alt="Quasar logo"
-      src="~assets/quasar-logo-vertical.svg"
-      style="width: 200px; height: 200px"
-    >
-  </q-page>
+  <h4>이벤트</h4>
+  <div>
+    <q-card>
+      <q-markup-table>
+        <thead>
+          <tr>
+            <th>No.</th>
+            <th>제목</th>
+            <th>작성자</th>
+            <th>작성일</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>06</td>q
+            <td>Frozen Yogurt</td>
+            <td>159</td>
+            <td>24</td>
+          </tr>
+        </tbody>
+      </q-markup-table>
+      <div class="q-pa-lg flex flex-center">
+      <q-pagination
+        v-model="current"
+        :max="5"
+        direction-links
+      />
+      </div>
+    </q-card>
+  </div>
 </template>
 
 <script>

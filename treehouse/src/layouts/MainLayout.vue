@@ -52,7 +52,7 @@
       <router-view />
 
       <q-footer elevated class="bg-white text-primary">
-        <a>트리하우스<br/>위치 : ~~~~~ <br/> 연락처 : ~~~~</a>
+        <a>트리하우스보드게임카페<br/>위치 : 충청남도 천안시 서북구 쌍용17길 60-6 1층 <br/> 연락처 : 041-414-1777 <br /> 오픈채팅 : https://open.kakao.com/o/goH6V2dd</a>
       </q-footer>
     </q-page-container>
   </q-layout>
@@ -89,7 +89,7 @@ const linksList = [
   },
   {
     title: '예약',
-    caption: 'Reservation',
+    caption: '공사중',
     icon: 'calendar_month',
     link: '/Reservation'
   },

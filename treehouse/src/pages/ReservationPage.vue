@@ -1,18 +1,30 @@
 <template>
-  <q-page class="flex flex-center">
-    <a>예약</a>
-    <img
-      alt="Quasar logo"
-      src="~assets/quasar-logo-vertical.svg"
-      style="width: 200px; height: 200px"
-    >
-  </q-page>
+  <div class="q-pa-md">
+    <q-date
+      v-model="date"
+    />
+  </div>
 </template>
 
 <script>
-import { defineComponent } from 'vue'
+import { ref } from 'vue'
 
-export default defineComponent({
-  name: 'IndexPage'
-})
+export default {
+  created () {
+    this.today = new Date()
+    this.todayString = this.today.getFullYear() + '/0' + (this.today.getMonth() + 1).slice(-2)
+  },
+  setup () {
+    return {
+      date: ref(null),
+      today: '',
+      todayString: ''
+    }
+  },
+  methods: {
+    test () {
+    }
+  }
+
+}
 </script>

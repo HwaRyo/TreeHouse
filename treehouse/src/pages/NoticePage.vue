@@ -13,7 +13,7 @@
         </thead>
         <tbody>
           <tr>
-            <td>06</td>
+            <td>06</td>q
             <td>Frozen Yogurt</td>
             <td>159</td>
             <td>24</td>
