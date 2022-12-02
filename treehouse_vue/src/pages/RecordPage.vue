@@ -6,11 +6,31 @@
         <template v-slot:prepend>
           <q-icon name="event" />
         </template>
-      </q-select>
+     </q-select>
+
+    <div class="q-mb-sm">
+      <q-badge color="teal">
+        Model: {{ date }}
+      </q-badge>
     </div>
+
+     <div v-if="model=='일'" class="q-pa-md">
+          <q-btn icon="event" round color="primary">
+            <q-popup-proxy @before-show="updateProxy" cover transition-show="scale" transition-hide="scale">
+              <q-date v-model="proxyDate" today-btn>
+                <div class="row items-center justify-end q-gutter-sm">
+                  <q-btn label="Cancel" color="primary" flat v-close-popup />
+                  <q-btn label="OK" color="primary" flat @click="save" v-close-popup />
+                </div>
+              </q-date>
+            </q-popup-proxy>
+          </q-btn>
+        </div>
+    </div>
+
   </div>
 
-  <div class="q-pa-md">
+  <div v-if="model=='일'" class="q-pa-md">
     <q-table
       :rows="rows"
       :columns="columns"
@@ -165,7 +185,6 @@ export default {
     this.month = ('0' + (this.today.getMonth() + 1)).slice(-2)
     this.day = ('0' + this.today.getDate()).slice(-2)
     this.dateString = '기준: ' + this.year + '-' + this.month + '-' + this.day
-    console.log(this.dateString)
   },
   setup () {
     return {
@@ -178,13 +197,20 @@ export default {
       year: '',
       month: '',
       dateString: '',
+      date: ref('2022/12/05'),
+      proxyDate: ref('2022/12/05'),
       options: [
         '일', '월'
       ]
     }
   },
   methods: {
-    test () {
+    updateProxy () {
+      this.proxyDate = this.date
+    },
+    save () {
+      this.date = this.proxyDate
+      this.dateString = this.proxyDate
     }
   }
 
